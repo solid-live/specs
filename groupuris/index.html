@@ -50,7 +50,7 @@
     </section>
     <section>
       <h2>Introduction</h2>
-      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  Yet there is no systematic way to create a URI from a set of its participants.  This simple spec solves the problem by creating a [[FOAF]] Group with members the URIs, canonicalizing it, taking the hash, and then creating a URI from that hash.
+      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  Yet there is no systematic way to create a URI from a set of its participants.  This simple spec solves the problem by creating a [[!FOAF]] Group with members the URIs, canonicalizing it, taking the hash, and then creating a URI from that hash.
 
       <section>
         <h3>Read Write Web Community Group</h3>
@@ -63,7 +63,7 @@
         <section>
           <h3>Overview</h3>
 
-          First we will create a [[FOAF]] group from the participants.  Then we will canonicalize it, then we will take a hash, to create a URI.
+          First we will create a [[!FOAF]] group from the participants.  Then we will canonicalize it, then we will take a hash, to create a URI.
 
         </section>
 
@@ -71,7 +71,7 @@
         <section>
           <h3>Vocabulary</h3>
 
-          The ontology / vocabulary used is the [[FOAF]] vocabulary.
+          The ontology / vocabulary used is the [[!FOAF]] vocabulary.
 
         </section>
 
@@ -81,7 +81,7 @@
       <section>
         <h2>Creating a Group</h2>
 
-        Groups are simply a [[FOAF]] Group with members that are the URIs in that Group.  Initially a bnode is used as a temporary identifier.
+        Groups are simply a [[!FOAF]] Group with members that are the URIs in that Group.  Initially a bnode is used as a temporary identifier.
 
 
         <section>
@@ -119,7 +119,7 @@ _: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/bob#me&gt; .
       <section>
         <h2>Hashing</h2>
 
-        <p>For convenience is it often useful to hash the normalized RDF into a short hash.  Suggested is sha256 for this to create an ni:/// hash as per [[RFC6920]].</p>
+        <p>For convenience is it often useful to hash the normalized RDF into a short hash.  Suggested is sha256 for this to create an ni:/// hash as per [[!RFC6920]].</p>
 
         <section>
           <h3>Example</h3>
@@ -127,6 +127,23 @@ _: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/bob#me&gt; .
           <pre class="">
             ni:///sha256;uGRJJ8M9AW9ne_pZOc4qJ1ZJOwHd8nMEV1b7FXE3YUQ
           </pre>
+        </section>
+
+      </section>
+
+
+      <section>
+        <h2>Implementations</h2>
+
+        <p>A reference implementation is available in npm and nodejs.  </p>
+
+        <section>
+          <h3>JavaScript</h3>
+          <a href="https://github.com/melvincarvalho/groupuris">JavaScript</a>
+        </section>
+        <section>
+          <h3>NPM</h3>
+          <a href="https://www.npmjs.com/package/groupuris">NPM</a>
         </section>
 
       </section>
