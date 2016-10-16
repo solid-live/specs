@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Group URIs</title>
+  <script
+  src='https://www.w3.org/Tools/respec/respec-w3c-common'
+  class='remove'></script>
+  <script class='remove'>
+  var respecConfig = {
+    specStatus: "CG-DRAFT",
+    editors: [{
+      name: "Melvin Carvalho",
+      url: "https://melvincarvalho.com/#me",
+      mailto: "melvincarvalho@gmail.com"
+    }],
+    wg: 'W3C Read Write Web Community Group',
+    wgURI: 'https://www.w3.org/community/rww/',
+    wgPublicList: "public-rww",
+    processVersion: 2016,
+    edDraftURI: "https://solid-live.github.io/specs/groupuris/",
+    shortName: "groupuris",
+    issueBase: "tps://solid-live.github.io/specs/groupuris/"
+  };
+  </script>
+
+  <style>.turtle .hll { background-color: #ffffcc }
+
+  </style>
+
+</head>
+<body>
+  <section id='abstract'>
+    <p>
+      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  This simple spec gives a way to systematically create a group uri given the URIs of the participants.
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      This document in an informal draft discussed in the <a href="https://www.w3.org/community/rww/">W3C Read Write Web
+        Community Group</a>.
+      </p>
+    </section>
+    <section>
+      <h2>Introduction</h2>
+      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  Yet there is no systematic way to create a URI from a set of its participatns.  This simple spec solves the problem by creating a FOAF Group with members the URIs, canonicalizing it, taking the hash, and then creating a URI from that hash.
+
+      <section>
+        <h3>Read Write Web Community Group</h3>
+
+        Groupuris is one of several related specifications being discussed by the <a href="https://www.w3.org/community/webpayments/">W3C Read Write Web
+          Community Group</a>.
+        </section>
+
+
+        <section>
+          <h3>Overview</h3>
+
+          First we will create a FOAF group from the participants.  Then we will canonicalize it, then we will take a hash, to create a URI.
+
+        </section>
+
+
+        <section>
+          <h3>Vocabulary</h3>
+
+          The ontology / vocabulary used is the <a href="http://xmlns.com/foaf/0.1/">FOAF</a> vocabulary.
+
+        </section>
+
+      </section>
+
+
+      <section>
+        <h2>Creating a Group</h2>
+
+        Groups are simply a FOAF Group with members that are the URIs in that Group.  Initially a bnode is used as a temporary identifier.
+
+
+        <section>
+          <h3>Example</h3>
+
+          <pre class="turtle">
+            [] a foaf:Group ;
+            foaf:member &lt;http://example.org/alice#me&gt; ;
+            foaf:member &lt;http://example.org/bob#me&gt; .
+          </pre>
+
+        </section>
+
+      </section>
+
+      <section>
+        <h2>Canonicalization</h2>
+
+        <p>It is useful to canonicalize the group before taking a hash so that the same participants independently hashed will yield the same URI.</p>
+
+        <p>The canonicalization follows typical RDF patterns and consists of creating ntriples, one per line, which are sorted alphabetically.</p>
+
+        <section>
+          <h3>Example</h3>
+
+
+          <pre class="turtle">
+_: &lt;https://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Group&gt; .
+_: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/alice#me&gt; .
+_: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/bob#me&gt; .
+          </pre>
+        </section>
+      </section>
+
+        <section>
+            <h2>Hashing</h2>
+
+            <p>For convenience is it often useful to hash the normalized RDF into a short hash.  Suggested is sha256 for this to create an ni:/// hash as per RFC 6920.</p>
+
+            <section>
+              <h3>Example</h3>
+
+              <pre class="">
+                ni:///sha256;b8644927c33d016f677bfa5939ce2a2756493b01ddf273045756fb1571376144
+              </pre>
+          </section>
+
+
+        </section>
+
+
+      </body>
+      </html>
