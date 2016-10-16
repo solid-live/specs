@@ -1,0 +1,27 @@
+{
+  "name": "sl_specs",
+  "version": "0.0.2",
+  "description": "Solid Live Specs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid-live/specs.git"
+  },
+  "keywords": [
+    "spec",
+    "solid",
+    "w3c",
+    "solid",
+    "live",
+    "groupuris"
+  ],
+  "author": "Melvin Carvalho <melvincarvalho@gmail.com> (https://melvincarvalho.com/#me)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solid-live/specs/issues"
+  },
+  "homepage": "https://github.com/solid-live/specs#readme"
+}
