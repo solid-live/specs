@@ -1,2 +1,3 @@
 # specs
-Specifications Repository
+
+* Groupuris -- creates a URI from a group
