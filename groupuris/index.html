@@ -14,6 +14,13 @@
       url: "https://melvincarvalho.com/#me",
       mailto: "melvincarvalho@gmail.com"
     }],
+    localBiblio: {
+      "VCARD": {
+        title: "VCard Ontology",
+        href: "http://www.w3.org/2006/vcard/ns",
+        publisher: "W3C",
+      }
+    },
     wg: 'W3C Read Write Web Community Group',
     wgURI: 'https://www.w3.org/community/rww/',
     wgPublicList: "public-rww",
@@ -50,7 +57,7 @@
     </section>
     <section>
       <h2>Introduction</h2>
-      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  Yet there is no systematic way to create a URI from a set of its participants.  This simple spec solves the problem by creating a [[!FOAF]] Group with members the URIs, canonicalizing it, taking the hash, and then creating a URI from that hash.
+      It is common when dealing with groups of Agents to want to create a URI to denote those agents.  Yet there is no systematic way to create a URI from a set of its participants.  This simple spec solves the problem by creating a [[!VCARD]] Group with members the URIs, canonicalizing it, taking the hash, and then creating a URI from that hash.
 
       <section>
         <h3>Read Write Web Community Group</h3>
@@ -63,7 +70,7 @@
         <section>
           <h3>Overview</h3>
 
-          First we will create a [[!FOAF]] group from the participants.  Then we will canonicalize it, then we will take a hash, to create a URI.
+          First we will create a [[!VCARD]] group from the participants.  Then we will canonicalize it, then we will take a hash, to create a URI.
 
         </section>
 
@@ -71,7 +78,7 @@
         <section>
           <h3>Vocabulary</h3>
 
-          The ontology / vocabulary used is the [[!FOAF]] vocabulary.
+          The ontology / vocabulary used is the [[!VCARD]] vocabulary.
 
         </section>
 
@@ -81,16 +88,16 @@
       <section>
         <h2>Creating a Group</h2>
 
-        Groups are simply a [[!FOAF]] Group with members that are the URIs in that Group.  Initially a bnode is used as a temporary identifier.
+        Groups are simply a [[!VCARD]] Group with members that are the URIs in that Group.  Initially a bnode is used as a temporary identifier.
 
 
         <section>
           <h3>Example</h3>
 
           <pre class="turtle">
-            [] a foaf:Group ;
-            foaf:member &lt;http://example.org/alice#me&gt; ;
-            foaf:member &lt;http://example.org/bob#me&gt; .
+            [] a vcard:Group ;
+            vcard:hasMember &lt;http://example.org/alice#me&gt; ;
+            vcard:hasMember &lt;http://example.org/bob#me&gt; .
           </pre>
 
         </section>
@@ -109,9 +116,9 @@
 
 
           <pre class="turtle">
-_: &lt;https://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Group&gt; .
-_: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/alice#me&gt; .
-_: &lt;http://xmlns.com/foaf/0.1/member&gt; &lt;http://example.org/bob#me&gt; .
+_: &lt;https://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2006/vcard/ns#Group&gt; .
+_: &lt;http://www.w3.org/2006/vcard/ns#hasMember&gt; &lt;http://example.org/alice#me&gt; .
+_: &lt;http://www.w3.org/2006/vcard/ns#hasMember&gt; &lt;http://example.org/bob#me&gt; .
           </pre>
         </section>
       </section>

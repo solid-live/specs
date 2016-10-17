@@ -1,6 +1,6 @@
 {
   "name": "sl_specs",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Solid Live Specs",
   "main": "index.js",
   "scripts": {
