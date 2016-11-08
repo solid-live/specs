@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Inbox Posts</title>
+  <script
+  src='https://www.w3.org/Tools/respec/respec-w3c-common'
+  class='remove'></script>
+  <script class='remove'>
+  var respecConfig = {
+    specStatus: "CG-DRAFT",
+    editors: [{
+      name: "Melvin Carvalho",
+      url: "https://melvincarvalho.com/#me",
+      mailto: "melvincarvalho@gmail.com"
+    }],
+    localBiblio: {
+      "VCARD": {
+        title: "VCard Ontology",
+        href: "http://www.w3.org/2006/vcard/ns",
+        publisher: "W3C",
+      },
+      "SIOC": {
+        title: "SIOC Ontology",
+        href: "http://rdfs.org/sioc/spec/",
+        publisher: "W3C",
+      }
+    },
+    wg: 'W3C Read Write Web Community Group',
+    wgURI: 'https://www.w3.org/community/rww/',
+    wgPublicList: "public-rww",
+    processVersion: 2016,
+    edDraftURI: "https://solid-live.github.io/specs/inboxposts/",
+    shortName: "groupuris",
+    issueBase: "https://github.com/solid-live/specs/issues",
+    otherLinks: [{
+      key: 'Issues',
+      data: [{
+        value: 'Issue Tracker',
+        href: 'https://github.com/solid-live/specs/issues'
+      }]
+    }]
+  };
+  </script>
+
+  <style>.turtle .hll { background-color: #ffffcc }
+
+  </style>
+
+</head>
+<body>
+  <section id='abstract'>
+    <p>
+      Alice is using a vocab training application. And she achieved her high score. She would like to publish that event on her timeline, via her inbox.
+    </p>
+  </section>
+  <section id='sotd'>
+    <p>
+      This document in an informal draft discussed in the <a href="https://www.w3.org/community/rww/">W3C Read Write Web
+        Community Group</a>.
+      </p>
+    </section>
+    <section>
+      <h2>Introduction</h2>
+      Alice is using a vocab training application. And she achieved her high score. She would like to publish that event on her timeline, via her inbox.
+
+      <section>
+        <h3>Read Write Web Community Group</h3>
+
+        Groupuris is one of several related specifications being discussed by the <a href="https://www.w3.org/community/webpayments/">W3C Read Write Web
+          Community Group</a>.
+        </section>
+
+
+        <section>
+          <h3>Overview</h3>
+
+          The application will create a post that will use Linked Data Notifications to send a message to a user's inbox.  Predicates will include, type, created date, content, image, author and timeline to post to.
+
+        </section>
+
+
+        <section>
+          <h3>Vocabulary</h3>
+
+          The ontology / vocabulary used is the [[!SIOC]] vocabulary.
+
+        </section>
+
+      </section>
+
+
+      <section>
+        <h2>Creating a Post</h2>
+
+        A post is created by following predicates in the user's profile.
+
+        <section>
+          <h3>Example</h3>
+
+          <pre class="turtle">
+&lt;#this&gt; a &lt;http://rdfs.org/sioc/ns#Post&gt; ;
+&lt;http://purl.org/dc/terms/created&gt; "2016-11-05T09:11:03.929Z"^^&lt;http://www.w3.org/2001/XMLSchema#dateTime&gt; ;
+&lt;http://purl.org/dc/terms/creator&gt; &lt;http://melvincarvalho.com/#me&gt; ;
+&lt;http://rdfs.org/sioc/ns#content&gt; """You scored 60% correct, from 10 of the top 2000 czech words.""" ;
+&lt;http://xmlns.com/foaf/0.1/img&gt; &lt;https://melvincarvalho.github.io/vocab/images/icon.png&gt; ;
+&lt;http://www.w3.org/ns/solid/terms#timeline&gt; &lt;https://melvin.databox.me/Public/timeline/&gt; ;
+&lt;http://www.w3.org/ns/mblog#author&gt; &lt;http://melvincarvalho.com/#me&gt; .
+          </pre>
+
+        </section>
+
+      </section>
+
+      <section>
+        <h2>Implementations</h2>
+
+        <p>Work in Progress</p>
+
+      </section>
+
+
+    </body>
+    </html>
