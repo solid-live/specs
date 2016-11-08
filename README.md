@@ -2,3 +2,4 @@
 # specs
 
 * [Groupuris](https://solid-live.github.io/specs/groupuris/) -- creates a URI from a group
+* [Inboxposts](https://solid-live.github.io/specs/inboxposts/) -- posts to an inbox
